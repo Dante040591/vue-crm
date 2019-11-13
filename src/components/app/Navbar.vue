@@ -45,7 +45,7 @@ export default {
   }),
   methods: {
     logout() {
-      this.$router.push('/login?message=logout')
+      this.$router.push('/login?message=logout') //передаем сообщение при выходе в гет-параметр, для того, чтобы затем его прочитать и вывести на странице логина при выходе из системы
     }
   },
   mounted() {
@@ -55,7 +55,7 @@ export default {
       this.date = new Date()
     }, 1000)
   },
-  beforeDestroy() {
+  beforeDestroy() { //при переходе на другой layout удаляем таймер и dropdown для очистки памяти
     clearInterval(this.interval)
 
     if (this.dropdown && this.dropdown.destroy) {
